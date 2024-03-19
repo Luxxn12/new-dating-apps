@@ -3,13 +3,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {
-  AtSignIcon,
   ButtonIcon,
   FavouriteIcon,
   Icon,
   MenuIcon,
   MessageCircleIcon,
-  PlayIcon,
   SearchIcon,
   SettingsIcon,
 } from '@gluestack-ui/themed';
@@ -19,6 +17,7 @@ import {Chat} from '../../chat';
 import {ProfileScreen} from '../../profile';
 import {Button} from '@gluestack-ui/themed';
 import {RepeatIcon} from '@gluestack-ui/themed';
+import {Tv, User} from 'lucide-react-native';
 
 export default function MenuUtama({navigation}: any) {
   const Tab = createBottomTabNavigator();
@@ -35,15 +34,16 @@ export default function MenuUtama({navigation}: any) {
           headerStyle: {backgroundColor: '#f5d0fe'},
           tabBarActiveTintColor: '#a21caf',
           tabBarInactiveTintColor: '#000000',
-          tabBarStyle: {backgroundColor: '#f5d0fe'},
+          tabBarStyle: {backgroundColor: '#f5d0fe', paddingBottom: 3},
         }}>
         <Tab.Screen
           name="BOGOPA"
           component={DatingView}
           options={{
             tabBarIcon: ({color}) => (
-              <Icon as={FavouriteIcon} color={color} size="lg" />
+              <Icon as={FavouriteIcon} color={color} size="xl" />
             ),
+
             title: 'BOGOPA',
             headerTitleAlign: 'center',
             headerRight: () => (
@@ -78,7 +78,7 @@ export default function MenuUtama({navigation}: any) {
           component={Live}
           options={{
             title: 'LIVE BOGOPA',
-            tabBarIcon: ({color}) => <Icon as={PlayIcon} color={color} />,
+            tabBarIcon: ({color}) => <Icon as={Tv} color={color} size="xl" />,
             headerRight: () => (
               <Button
                 borderRadius="$3xl"
@@ -88,7 +88,7 @@ export default function MenuUtama({navigation}: any) {
                 onPress={() =>
                   navigation.navigate('New Live', {name: 'Submit'})
                 }>
-                <ButtonIcon as={PlayIcon} size="xl" color="$black" />
+                <ButtonIcon as={Tv} size="xl" color="$black" />
               </Button>
             ),
           }}
@@ -99,7 +99,7 @@ export default function MenuUtama({navigation}: any) {
           options={{
             title: 'CHAT',
             tabBarIcon: ({color}) => (
-              <Icon as={MessageCircleIcon} color={color} />
+              <Icon as={MessageCircleIcon} color={color} size="xl" />
             ),
             headerRight: () => (
               <Button
@@ -120,7 +120,7 @@ export default function MenuUtama({navigation}: any) {
           component={ProfileScreen}
           options={{
             title: 'PROFILE',
-            tabBarIcon: ({color}) => <Icon as={AtSignIcon} color={color} />,
+            tabBarIcon: ({color}) => <Icon as={User} color={color} size="xl" />,
             headerRight: () => (
               <Button
                 borderRadius="$3xl"

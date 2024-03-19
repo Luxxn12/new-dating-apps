@@ -7,7 +7,7 @@ export default function ViewPengaturan({}: any) {
     <>
       <Box bgColor="$fuchsia200" h={'$full'}>
         <Text fontSize={'$2xl'} fontWeight="$bold" pt={'$1'}>
-          COBA
+          PENGATURAN
         </Text>
       </Box>
     </>

@@ -15,7 +15,16 @@ import MenuUtama from './menu_utama';
 import {ViewPengaturan} from '../../dating';
 import {ViewLive} from '../../live';
 import {SearchUser} from '../../chat';
-import {SettingProfile} from '../../profile';
+import {
+  SettingProfile,
+  ViewDisukai,
+  ViewInfoProfile,
+  ViewLangganan,
+  ViewPengunjung,
+  ViewSayaSuka,
+} from '../../profile';
+import ViewRoomChat from '../../chat/component/view_room_chat';
+import ViewProfileUser from '../../chat/component/view_profile_user';
 
 export default function MenuAuth() {
   const Stack = createNativeStackNavigator();
@@ -109,6 +118,7 @@ export default function MenuAuth() {
             headerStyle: {backgroundColor: '#f5d0fe'},
             statusBarColor: '#f5d0fe',
             title: 'Search',
+            headerShown: false,
           }}
           name="SearchUser"
           component={SearchUser}
@@ -121,6 +131,66 @@ export default function MenuAuth() {
           }}
           name="PengaturanProfile"
           component={SettingProfile}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+          }}
+          name="ChatRoom"
+          component={ViewRoomChat}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+            title: 'Profile User',
+            headerShown: false,
+          }}
+          name="ProfileUser"
+          component={ViewProfileUser}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+            title: 'Profile User',
+            headerShown: false,
+          }}
+          name="InfoProfile"
+          component={ViewInfoProfile}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+          }}
+          name="Disukai"
+          component={ViewDisukai}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+          }}
+          name="Pengunjung"
+          component={ViewPengunjung}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+          }}
+          name="SayaSuka"
+          component={ViewSayaSuka}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+          }}
+          name="Langganan"
+          component={ViewLangganan}
         />
       </Stack.Navigator>
     </NavigationContainer>

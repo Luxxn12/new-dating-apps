@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Box, HStack, Text} from '@gluestack-ui/themed';
+import {Box, Divider, HStack, Text} from '@gluestack-ui/themed';
 import React from 'react';
 import {Image} from 'react-native';
 import {View} from 'react-native';
@@ -8,7 +8,7 @@ import {ScrollView, TouchableOpacity} from 'react-native';
 const db = [
   {
     id: 1,
-    name: 'Richard Hendricks',
+    name: 'Dinda Kirana',
     img: {uri: 'https://i.pravatar.cc/1000?img=1'},
     chat: 'Assalammualaikum aa',
   },
@@ -67,7 +67,7 @@ const db = [
     img: {uri: 'https://i.pravatar.cc/1000?img=10'},
   },
 ];
-export default function Chat() {
+export default function Chat({navigation}: any) {
   return (
     <>
       <Box bgColor="$fuchsia200" h={'$full'}>
@@ -80,7 +80,11 @@ export default function Chat() {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             {db.map(data => {
               return (
-                <TouchableOpacity key={data.id}>
+                <TouchableOpacity
+                  key={data.id}
+                  onPress={() =>
+                    navigation.navigate('ChatRoom', {name: 'Submit'})
+                  }>
                   <View
                     style={{
                       width: 75,
@@ -124,9 +128,10 @@ export default function Chat() {
           <ScrollView showsVerticalScrollIndicator={false}>
             {db.map(data => {
               return (
-                <>
-                  <HStack marginBottom={5} key={data.id}>
-                    <TouchableOpacity>
+                <Box key={data.id}>
+                  <HStack marginBottom={5}>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('ProfileUser')}>
                       <View
                         style={{
                           width: 57,
@@ -150,21 +155,27 @@ export default function Chat() {
                         />
                       </View>
                     </TouchableOpacity>
-                    <View
-                      style={{
-                        justifyContent: 'flex-start',
-                        margin: 8,
-                        alignItems: 'flex-start',
-                      }}>
-                      <Text fontSize={15} fontWeight="$bold">
-                        {data.name}
-                      </Text>
-                      <Text pt={5} fontSize={13}>
-                        {data.chat}
-                      </Text>
-                    </View>
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate('ChatRoom', {name: 'Submit'})
+                      }>
+                      <View
+                        style={{
+                          justifyContent: 'flex-start',
+                          margin: 8,
+                          alignItems: 'flex-start',
+                        }}>
+                        <Text fontSize={15} fontWeight="$bold">
+                          {data.name}
+                        </Text>
+                        <Text pt={5} fontSize={13}>
+                          {data.chat}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
                   </HStack>
-                </>
+                  <Divider bg="$secondary300" />
+                </Box>
               );
             })}
           </ScrollView>
