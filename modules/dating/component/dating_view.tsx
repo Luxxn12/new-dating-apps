@@ -1,5 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Button, ButtonIcon, CloseIcon, StarIcon} from '@gluestack-ui/themed';
+import {
+  Button,
+  ButtonIcon,
+  CloseIcon,
+  Icon,
+  StarIcon,
+} from '@gluestack-ui/themed';
 import {HStack} from '@gluestack-ui/themed';
 import {FavouriteIcon} from '@gluestack-ui/themed';
 import {Box, Text} from '@gluestack-ui/themed';
@@ -114,48 +120,79 @@ export default function DatingView({}: any) {
                 </TinderCard>
               ))}
             </View>
-            {/* <View style={styles.buttons}>
-            <Button onPress={() => swipe('left')} title="Swipe left!" />
-            <Button onPress={() => swipe('right')} title="Swipe right!" />
-            <Button onPress={() => swipe('up')} title="Swipe up!" />
-          </View> */}
-            <HStack space="4xl" pt={'$3'} reversed>
-              <Button
-                borderRadius="$3xl"
-                size="xl"
-                p="$3.5"
-                bg="$green"
-                borderColor="$green"
-                onPress={() => swipe('right')}>
-                {/* EditIcon is imported from 'lucide-react-native' */}
-                <Box borderRadius={'$full'}>
-                  <ButtonIcon as={StarIcon} size="xl" />
-                </Box>
-              </Button>
-              <Button
-                borderRadius="$3xl"
-                size="xl"
-                p="$4.5"
-                bg="$pink600"
-                borderColor="$pink600"
-                onPress={() => swipe('up')}>
-                {/* EditIcon is imported from 'lucide-react-native' */}
-                <Box borderRadius={'$full'}>
-                  <ButtonIcon as={FavouriteIcon} size="xl" />
-                </Box>
-              </Button>
-              <Button
-                borderRadius="$3xl"
-                size="xl"
-                p="$3.5"
-                bg="$rose700"
-                borderColor="$rose700"
-                onPress={() => swipe('left')}>
-                {/* EditIcon is imported from 'lucide-react-native' */}
-                <Box borderRadius={'$full'}>
-                  <ButtonIcon as={CloseIcon} size="xl" />
-                </Box>
-              </Button>
+            <HStack
+              space="4xl"
+              reversed
+              justifyContent="center"
+              alignContent="center"
+              alignItems="center">
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 50 / 2,
+                  backgroundColor: '#F3F3F3',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Button variant="link" onPress={() => swipe('right')}>
+                  {/* EditIcon is imported from 'lucide-react-native' */}
+                  <Box borderRadius={'$full'}>
+                    <Icon
+                      as={StarIcon}
+                      w="$6"
+                      h="$7"
+                      mt={1}
+                      color="$green700"
+                    />
+                  </Box>
+                </Button>
+              </View>
+
+              <View
+                style={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: 60 / 2,
+                  backgroundColor: '#F3F3F3',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Button variant="link" onPress={() => swipe('up')}>
+                  {/* EditIcon is imported from 'lucide-react-native' */}
+                  <Box borderRadius={'$full'}>
+                    <Icon
+                      as={FavouriteIcon}
+                      w="$9"
+                      h="$9"
+                      mt={1}
+                      color="$pink500"
+                    />
+                  </Box>
+                </Button>
+              </View>
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 50 / 2,
+                  backgroundColor: '#F3F3F3',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Button onPress={() => swipe('left')} variant="link">
+                  {/* EditIcon is imported from 'lucide-react-native' */}
+                  <Box borderRadius={'$full'}>
+                    <Icon
+                      as={CloseIcon}
+                      w="$7"
+                      h="$7"
+                      mt={1}
+                      color="$rose700"
+                    />
+                  </Box>
+                </Button>
+              </View>
             </HStack>
           </View>
         </Box>
@@ -169,7 +206,7 @@ const styles = {
     backgroundColor: '#fff',
     width: '100%',
     maxWidth: 360,
-    height: 550,
+    height: 540,
     shadowColor: 'black',
     shadowOpacity: 0.2,
     shadowRadius: 20,
